@@ -21,10 +21,13 @@ public class DB {
         String sqlQuery="update vehicle set "+
                 "vehi_number="+vehicleNumber+','+"year="+'\''+year+'\''+','+"model="+'\''+model+'\''+','+"conditions="+'\''+condition+'\''+
                 "where vehi_number=  "+vehicleNumber;
+        this.sqlConnection(sqlQuery);
     }
     void delete(int vehicleNumber)
     {
+
         String sqlQuery= "delete from vehicle where vehi_number="+vehicleNumber;
+        this.sqlConnection(sqlQuery);
     }
     ResultSet search(int vehicleNumber)
     {
@@ -57,4 +60,5 @@ public class DB {
             e.printStackTrace();
         }
     }
+
 }

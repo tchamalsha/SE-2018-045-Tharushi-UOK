@@ -40,6 +40,7 @@ public class entry extends JFrame{
                 vehicle.setModel(textField3.getText());
                 vehicle.setCondition(textField4.getText());
                 fromDatabase.save(vehicle.vehicleNumber,vehicle.year,vehicle.model,vehicle.condition);
+                clearContent();
 
             }
         });
@@ -53,6 +54,7 @@ public class entry extends JFrame{
                 vehicle.setModel(textField3.getText());
                 vehicle.setCondition(textField4.getText());
                 fromDatabase.update(vehicle.vehicleNumber,vehicle.year,vehicle.model,vehicle.condition);
+                clearContent();;
             }
         });
 
@@ -61,6 +63,7 @@ public class entry extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 DB fromDatabase=new DB();
                 fromDatabase.delete(Integer.parseInt(textField1.getText()));
+                clearContent();
             }
         });
 
@@ -79,12 +82,21 @@ public class entry extends JFrame{
                         textField2.setText(resultSet.getString("year"));
                         textField3.setText(resultSet.getString("model"));
                         textField4.setText(resultSet.getString("conditions"));
+                        textField5.setText("");
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
                     }
                 }
             }
         });
+    }
+    void clearContent()
+    {
+        textField1.setText("");
+        textField2.setText("");
+        textField3.setText("");
+        textField4.setText("");
+        textField5.setText("");
     }
 
     public static void main(String[] args) {

@@ -96,7 +96,7 @@
                 </constraints>
                 <properties>
                   <font name="Fira Code" size="14"/>
-                  <text value="Model"/>
+                  <text value="Year"/>
                 </properties>
               </component>
             </children>
@@ -143,7 +143,7 @@
                 </constraints>
                 <properties>
                   <font name="Fira Code" size="14"/>
-                  <text value="Year"/>
+                  <text value="Model"/>
                 </properties>
               </component>
             </children>
