@@ -8,4 +8,11 @@ public class signup {
     private JTextField textField3;
     private JTextField textField4;
     private JTextField textField5;
+    private JButton clearButton;
+    private JButton signUpButton;
+    private JLabel titleSignup;
+
+
+
+
 }
