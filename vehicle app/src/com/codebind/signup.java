@@ -1,6 +1,9 @@
 package com.codebind;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class signup extends JFrame{
     private JTextField textField1;
@@ -19,6 +22,21 @@ public class signup extends JFrame{
         this.setContentPane(mainFrame);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                user user = new user(textField1.getText(),textField2.getText(),textField3.getText(),textField4.getText(),textField5.getText());
+
+
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        signup screen=new signup();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        screen.setSize(screenSize.width*1/2, screenSize.height*3/4);
+        screen.setVisible(true);
     }
 
 

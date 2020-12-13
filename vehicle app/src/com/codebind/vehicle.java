@@ -6,6 +6,7 @@ public class vehicle {
     String model;
     String condition;
 
+
     public int getVehicleNumber() {
         return vehicleNumber;
     }

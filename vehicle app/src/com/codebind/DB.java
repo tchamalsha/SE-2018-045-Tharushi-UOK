@@ -32,10 +32,11 @@ public class DB {
     ResultSet search(int vehicleNumber)
     {
         String url="jdbc:mysql://localhost:3306/Vehicles";
-        String user="root";
-        String password="tharushi";
+        String user=login.userName;
+        String password=login.password;
 
         try {
+            System.out.println(password);
             Connection myConnection = DriverManager.getConnection(url,user,password);
             Statement myStatement = myConnection.createStatement();
             String sqlQuery="Select * from vehicle where vehi_number="+vehicleNumber;
@@ -46,11 +47,12 @@ public class DB {
         }
         return resultSet;
     }
+
     void sqlConnection(String sqlQuery)
     {
         String url="jdbc:mysql://localhost:3306/Vehicles";
-        String user="root";
-        String password="tharushi";
+        String user=login.userName;
+        String password=login.password;
 
         try {
             Connection myConnection = DriverManager.getConnection(url,user,password);

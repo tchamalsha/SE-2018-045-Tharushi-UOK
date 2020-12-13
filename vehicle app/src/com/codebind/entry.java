@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class entry extends JFrame{
+public class entry extends JFrame {
     private JLabel title1;
     private JLabel numberField;
     private JLabel modelField;
@@ -24,7 +24,7 @@ public class entry extends JFrame{
     private JTextField textField5;
     private JButton deleteButton;
 
-    entry(){
+    entry() {
         super("Infromation entry from");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,13 +33,13 @@ public class entry extends JFrame{
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DB fromDatabase=new DB();
-                vehicle vehicle=new vehicle();
+                DB fromDatabase = new DB();
+                vehicle vehicle = new vehicle();
                 vehicle.setVehicleNumber(Integer.parseInt(textField1.getText()));
                 vehicle.setYear(textField2.getText());
                 vehicle.setModel(textField3.getText());
                 vehicle.setCondition(textField4.getText());
-                fromDatabase.save(vehicle.vehicleNumber,vehicle.year,vehicle.model,vehicle.condition);
+                fromDatabase.save(vehicle.vehicleNumber, vehicle.year, vehicle.model, vehicle.condition);
                 clearContent();
 
             }
@@ -47,21 +47,22 @@ public class entry extends JFrame{
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DB fromDatabase=new DB();
-                vehicle vehicle=new vehicle();
+                DB fromDatabase = new DB();
+                vehicle vehicle = new vehicle();
                 vehicle.setVehicleNumber(Integer.parseInt(textField1.getText()));
                 vehicle.setYear(textField2.getText());
                 vehicle.setModel(textField3.getText());
                 vehicle.setCondition(textField4.getText());
-                fromDatabase.update(vehicle.vehicleNumber,vehicle.year,vehicle.model,vehicle.condition);
-                clearContent();;
+                fromDatabase.update(vehicle.vehicleNumber, vehicle.year, vehicle.model, vehicle.condition);
+                clearContent();
+                ;
             }
         });
 
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DB fromDatabase=new DB();
+                DB fromDatabase = new DB();
                 fromDatabase.delete(Integer.parseInt(textField1.getText()));
                 clearContent();
             }
@@ -70,12 +71,11 @@ public class entry extends JFrame{
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DB fromDatabase=new DB();
-                vehicle vehicle=new vehicle();
-                int vehicleNumber=Integer.parseInt(textField5.getText());
-                ResultSet resultSet=fromDatabase.search(vehicleNumber);
-                while (true)
-                {
+                DB fromDatabase = new DB();
+                vehicle vehicle = new vehicle();
+                int vehicleNumber = Integer.parseInt(textField5.getText());
+                ResultSet resultSet = fromDatabase.search(vehicleNumber);
+                while (true) {
                     try {
                         if (!resultSet.next()) break;
                         textField1.setText(String.valueOf(resultSet.getInt("vehi_number")));
@@ -90,8 +90,8 @@ public class entry extends JFrame{
             }
         });
     }
-    void clearContent()
-    {
+
+    void clearContent() {
         textField1.setText("");
         textField2.setText("");
         textField3.setText("");
@@ -99,10 +99,4 @@ public class entry extends JFrame{
         textField5.setText("");
     }
 
-    public static void main(String[] args) {
-        entry screen =new entry();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        screen.setSize(screenSize.width*1/3, screenSize.height*1/2);
-        screen.setVisible(true);
-    }
 }
