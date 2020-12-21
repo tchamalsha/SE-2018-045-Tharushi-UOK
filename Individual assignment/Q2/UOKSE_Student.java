@@ -26,7 +26,11 @@ public class UOKSE_Student extends Student {
         if (exam<0 || exam>num_exams)
             return -1;
         else
+        {
             return exams[exam];
+        }
+
+
     }
     public String getName()
     {
