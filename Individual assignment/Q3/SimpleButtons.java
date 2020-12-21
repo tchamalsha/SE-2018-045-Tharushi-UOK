@@ -1,6 +1,8 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SimpleButtons extends JFrame{
     private JPanel mainPanel;
@@ -17,6 +19,30 @@ public class SimpleButtons extends JFrame{
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        a0Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayValue.setText(a0Button.getText());
+            }
+        });
+        a1Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayValue.setText(a1Button.getText());
+            }
+        });
+        a2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayValue.setText(a2Button.getText());
+            }
+        });
+        a3Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayValue.setText(a3Button.getText());
+            }
+        });
     }
 
     public static void main(String[] args) {
